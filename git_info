@@ -1,0 +1,5 @@
+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
+
+https://github.com/v11stats/myrepo.git
+usethis::create_from_github('https://github.com/v11stats/snips.git',
+        destdir = '~/git')
