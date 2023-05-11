@@ -133,20 +133,20 @@ x11()
 #
 #############################################################################
 lookup <- function(dbCol){
-    
+
     p15 <- pre2015 %>%
         select(dbCol) %>% summarise(mean(.data[[dbCol]],na.rm=T))
-    p15 
+    p15
 }
 lookup('dir_per8plus')
 
-# When you have an env-variable that is a character vector, you need to index into 
+# When you have an env-variable that is a character vector, you need to index into
 # the .data pronoun with [[, like summarise(df, mean = mean(.data[[var]])).
 #The following example uses .data to count the number of unique values in each variable of mtcars:
 for (var in names(mtcars)) {
   mtcars %>% count(.data[[var]]) %>% print()
 }
-#Note that .data is not a data frame; it’s a special construct, a pronoun, that 
+#Note that .data is not a data frame; it’s a special construct, a pronoun, that
 #allows you to access the current variables either directly, with .data$x or
 #indirectly with .data[[var]]. Don’t expect other functions to work with it.
 
@@ -162,6 +162,7 @@ print(xtable(x2), type="html", file="x2.html")
 # slow vs fast
 races <- races %>%
   ungroup() %>%
-  #rowwise() %>% 
+  #rowwise() %>%
   #mutate(race_t = sum(c_across(starts_with("race")))) # really slow
   mutate(race_tt = rowSums(pick(starts_with("race")))) # 100x faster or more
+#add code line
