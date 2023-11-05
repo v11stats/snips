@@ -166,3 +166,4 @@ races <- races %>%
   #mutate(race_t = sum(c_across(starts_with("race")))) # really slow
   mutate(race_tt = rowSums(pick(starts_with("race")))) # 100x faster or more
 #add code line
+gitcreds::gitcreds_list()
